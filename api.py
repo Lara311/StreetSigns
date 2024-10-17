@@ -28,7 +28,6 @@ def preprocess_image(image: Image.Image):
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
     try:
-        # Load the image from the uploaded file
         image = Image.open(io.BytesIO(await file.read())).convert("RGB")
         
         # Preprocess the image
